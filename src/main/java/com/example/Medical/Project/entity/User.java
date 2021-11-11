@@ -29,7 +29,7 @@ public class User extends BaseEntity{
     private Long active;
     @Column(name = "delete_user")
     private Boolean delete;
-    @ManyToMany
+    @ManyToOne
     @JoinColumn(name = "id_medical_institution")
     private MedicalInstitution medicalInstitution;
 }

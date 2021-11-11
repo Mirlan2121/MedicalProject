@@ -27,6 +27,6 @@ public class Medicines {
     @Column(name = "method_of_application", nullable = false)
     private String methodOfApplication;
     @JoinColumn(name = "id_diagnosis")
-    @ManyToMany
+    @ManyToOne
     private Diagnosis diagnosis;
 }

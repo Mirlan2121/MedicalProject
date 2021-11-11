@@ -19,9 +19,9 @@ public class HYMStatistics {
     @Column(name = "meaning", nullable = false)
     private String meaning;
     @JoinColumn(name = "id_HYM")
-    @OneToMany
+    @OneToOne
     private HYM hym;
     @JoinColumn(name = "id_indicators_hym")
-    @OneToMany
+    @ManyToOne
     private IndicatorsHYM indicatorsHYM;
 }

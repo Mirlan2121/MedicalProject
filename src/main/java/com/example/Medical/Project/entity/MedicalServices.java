@@ -23,9 +23,9 @@ public class MedicalServices {
     @Column(name = "contraindications", nullable = false)
     private String contraindications;
     @JoinColumn(name = "id_medical_institution")
-    @ManyToMany
+    @ManyToOne
     private MedicalInstitution medicalInstitution;
     @JoinColumn(name = "id_diagnosis")
-    @ManyToMany
+    @ManyToOne
     private Diagnosis diagnosis;
 }
