@@ -31,9 +31,9 @@ public class Surveys {
     @Column(name = "note", nullable = false)
     private String note;
     @JoinColumn(name = "id_profile_users")
-    @OneToMany
+    @OneToOne
     private ProfileUsers profileUsers;
     @JoinColumn(name = "id_doctor")
-    @ManyToMany
+    @ManyToOne
     private Doctor doctor;
 }
