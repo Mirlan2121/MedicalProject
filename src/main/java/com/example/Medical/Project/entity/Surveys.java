@@ -1,8 +1,17 @@
 package com.example.Medical.Project.entity;
 
+import lombok.*;
+
 import javax.persistence.*;
 import java.util.Date;
-
+@Entity
+@Table(name = "surveys")
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@ToString
 public class Surveys {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
