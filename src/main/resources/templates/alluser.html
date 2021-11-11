@@ -1,0 +1,18 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.thymeleaf.org ">
+<head>
+    <title > Вывод всех зарегестрированых</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+<body>
+<h1> Все пользователи </h1>
+
+<div th:each="el : ${userList}">
+    <input type="submit" name="user" th:value="${el.login}">
+</div>
+
+<a href="/"> назат в главное меню </a>
+
+</body>
+</html>
