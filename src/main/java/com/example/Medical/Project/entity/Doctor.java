@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.Date;
 
 @Entity
 @Table(name = "Doctor")
@@ -17,17 +18,24 @@ public class Doctor {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column(name = "doc_name", nullable = false)
+    @Column(name = "doctor_name", nullable = false)
     private String name;
-    @Column(name = "doc_ser_name", nullable = false)
+    @Column(name = "ser_name", nullable = false)
     private String serName;
-    @Column(name = "doc_phone", nullable = false)
-    private Integer telethon;
+    @Column(name = "patron_name", nullable = false)
+    private String patronName;
     @Column(name = "doc_specialization", nullable = false)
     private String specialization;
-
+    @Column(name = "work_experience", nullable = false)
+    private String workExperience;
+    @Column(name = "doc_phone", nullable = false)
+    private Integer telethon;
+    @Column(name = "date_of_birth", nullable = false)
+    private Date dateOfBirth;
+    @Column(name = "INN", nullable = false)
+    private String INN;
     @JoinColumn(name = "user_id")
-    @ManyToOne
+    @OneToOne
     private User user;
 
 
