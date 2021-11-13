@@ -1,8 +1,6 @@
 package com.example.Medical.Project.controller;
 
 import com.example.Medical.Project.entity.User;
-import com.example.Medical.Project.repository.UserRepository;
-import com.example.Medical.Project.service.UserService;
 import com.example.Medical.Project.service.impl.UserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
