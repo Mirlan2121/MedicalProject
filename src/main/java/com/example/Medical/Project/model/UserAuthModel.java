@@ -7,6 +7,6 @@ import lombok.*;
 @NoArgsConstructor
 @Builder
 public class UserAuthModel {
-    private String name;
+    private String login;
     private String password;
 }
