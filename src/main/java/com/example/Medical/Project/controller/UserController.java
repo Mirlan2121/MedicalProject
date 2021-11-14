@@ -17,6 +17,7 @@ public class UserController {
     public String getAllUsers(Model model){
         Iterable<User> allUser = userService.getAllUsers();
         model.addAttribute("users", allUser);
+        model.addAttribute("log", "Не известный пользователь");
         return "users";
     }
 
@@ -32,7 +33,8 @@ public class UserController {
     @PostMapping("/loguser")
     public String logUser(@RequestParam String login, @RequestParam String password, Model model){
         User user = User.builder().login(login).password(password).build();
-        userService.seve(user);
+        userService.getByUserName(user.getLogin());
+        model.addAttribute("log", user.getLogin());
         // Тут надо сделать проверку есть ль такой в БД если да то переидти на страницу списка юсеров
         return "redirect:/userall";
     }
@@ -41,6 +43,7 @@ public class UserController {
     public String newUser(@RequestParam String login, @RequestParam String password, Model model){
         User user = User.builder().login(login).password(password).build();
         userService.seve(user);
+        model.addAttribute("log", user.getLogin());
         return "redirect:/userall";
     }
 }
