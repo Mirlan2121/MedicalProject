@@ -8,11 +8,9 @@ import com.example.Medical.Project.repository.UserRoleRepository;
 import com.example.Medical.Project.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import javax.security.auth.callback.PasswordCallback;
 import java.util.Base64;
 import java.util.List;
 

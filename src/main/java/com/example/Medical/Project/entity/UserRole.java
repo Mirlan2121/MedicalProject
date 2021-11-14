@@ -18,4 +18,8 @@ public class UserRole {
     @ManyToOne
     @JoinColumn(name = "user_id")
     private User user;
+
+    @JoinColumn(name = "pat_user_info")
+    @OneToOne
+    private PatUserInfo patUserInfo;
 }
