@@ -16,7 +16,6 @@ public class UserController {
     @GetMapping("/userall")
     public String getAllUsers(Model model){
         Iterable<User> allUser = userService.getAllUsers();
-        System.out.println("ДЕБАГ" + allUser);
         model.addAttribute("users", allUser);
         return "users";
     }
@@ -24,6 +23,6 @@ public class UserController {
     public String newUser(@RequestParam String login, @RequestParam String password, Model model){
         User user = User.builder().login(login).password(password).build();
         userService.seve(user);
-        return "redirect:/users";
+        return "redirect:/userall";
     }
 }
