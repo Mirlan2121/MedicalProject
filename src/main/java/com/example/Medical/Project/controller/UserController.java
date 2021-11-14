@@ -37,7 +37,6 @@ public class UserController {
         userService.getByUserName(user.getLogin());
         model.addAttribute("log", user.getLogin());
         userService.getAuthorizerToken(UserAuthModel.builder().login(login).password(password).build());
-        // Тут надо сделать проверку есть ль такой в БД если да то переидти на страницу списка юсеров
         return "redirect:/userall";
     }
 
