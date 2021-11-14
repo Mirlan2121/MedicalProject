@@ -33,7 +33,6 @@ public class UserServiceImpl implements UserService { // добавил Сане
         String encodePassword = passwordEncoder.encode(user.getPassword());
         user.setPassword(encodePassword);
         userRepository.save(user);
-
         UserRole userRole = new UserRole();
         userRole.setRoleName("ROLE_USER");
         userRole.setUser(user);
@@ -72,7 +71,7 @@ public class UserServiceImpl implements UserService { // добавил Сане
                 () -> new IllegalArgumentException("Неверный логин или пароль"));
         boolean isPasswordMatches = passwordEncoder.matches(userAuthModel.getPassword(), user.getPassword());
         if (!isPasswordMatches) {
-            throw new IllegalArgumentException("Неверный Логин или Пароль");
+                throw new IllegalArgumentException("Неверный Логин или Пароль");
         }
         String userNamePasswordPair = userAuthModel.getLogin() + ": " + userAuthModel.getPassword();
         return "Basic " + new String(Base64.getEncoder().encode(userNamePasswordPair.getBytes()));

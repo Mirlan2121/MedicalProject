@@ -39,13 +39,15 @@ public class UserController {
         }
         UserAuthModel user = UserAuthModel.builder().login(login).password(password).build();// мирлан
         model.addAttribute("log", user.getLogin());
+        String write =
         userService.getAuthorizerToken(UserAuthModel.builder().login(login).password(password).build());
+        System.out.println(write);
         return "redirect:/userall";
     }
 
     @PostMapping("/newuser")
     public String newUser(@RequestParam String login, @RequestParam String password, Model model){
-        User user = User.builder().login(login).password(password).build();
+        User user = User.builder().login(login).password(password).userInfo("USER").isActive(3L).build();
         if((password.isEmpty() || password == null) || (login.isEmpty() || login == null)) {
             model.addAttribute("texterror", "Нельзя оставлять поля пустыми");
             return "newuser";
