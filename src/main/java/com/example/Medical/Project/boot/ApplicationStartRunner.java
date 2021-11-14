@@ -22,7 +22,7 @@ public class ApplicationStartRunner implements CommandLineRunner {
 //        admin.setUserInfo("Администратор");
 //        admin.setIsActive(1L);
 //        userService.seve(admin);
-
+//
 //        User doctor = new User();
 //        doctor.setLogin("Doctor");
 //        doctor.setPassword("doctor");

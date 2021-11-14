@@ -33,6 +33,10 @@ public class UserController {
 
     @PostMapping("/loguser")
     public String logUser (@RequestParam String login, @RequestParam String password, Model model){
+        if((password.isEmpty() || password == null) || (login.isEmpty() || login == null)) {
+            model.addAttribute("texterror", "Нельзя оставлять поля пустыми");
+            return "loguser";
+        }
         UserAuthModel user = UserAuthModel.builder().login(login).password(password).build();
         userService.getByUserName(user.getLogin());
         model.addAttribute("log", user.getLogin());
@@ -43,6 +47,10 @@ public class UserController {
     @PostMapping("/newuser")
     public String newUser(@RequestParam String login, @RequestParam String password, Model model){
         User user = User.builder().login(login).password(password).build();
+        if((password.isEmpty() || password == null) || (login.isEmpty() || login == null)) {
+            model.addAttribute("texterror", "Нельзя оставлять поля пустыми");
+            return "newuser";
+        }
         userService.seve(user);
         model.addAttribute("log", user.getLogin());
         return "redirect:/userall";
