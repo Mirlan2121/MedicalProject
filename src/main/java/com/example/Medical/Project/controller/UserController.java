@@ -19,6 +19,24 @@ public class UserController {
         model.addAttribute("users", allUser);
         return "users";
     }
+
+    @GetMapping("/newuser")
+    public String menuUsers(Model model){
+        return "newuser";
+    }
+    @GetMapping("/loguser")
+    public String logUsers(Model model){
+        return "loguser";
+    }
+
+    @PostMapping("/loguser")
+    public String logUser(@RequestParam String login, @RequestParam String password, Model model){
+        User user = User.builder().login(login).password(password).build();
+        userService.seve(user);
+        // Тут надо сделать проверку есть ль такой в БД если да то переидти на страницу списка юсеров
+        return "redirect:/userall";
+    }
+
     @PostMapping("/newuser")
     public String newUser(@RequestParam String login, @RequestParam String password, Model model){
         User user = User.builder().login(login).password(password).build();
