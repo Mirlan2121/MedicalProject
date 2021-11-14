@@ -25,7 +25,6 @@ public class User{
 
     private LocalDateTime createDate; // Добавил Санек
 
-
     @PrePersist // Дописал Санек
     public void datePrePersist(){
         this.createDate = LocalDateTime.now();
