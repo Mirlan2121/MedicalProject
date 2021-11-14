@@ -1,6 +1,7 @@
 package com.example.Medical.Project.controller;
 
 import com.example.Medical.Project.entity.User;
+import com.example.Medical.Project.model.UserAuthModel;
 import com.example.Medical.Project.service.impl.UserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -31,10 +32,11 @@ public class UserController {
     }
 
     @PostMapping("/loguser")
-    public String logUser(@RequestParam String login, @RequestParam String password, Model model){
-        User user = User.builder().login(login).password(password).build();
+    public String logUser (@RequestParam String login, @RequestParam String password, Model model){
+        UserAuthModel user = UserAuthModel.builder().login(login).password(password).build();
         userService.getByUserName(user.getLogin());
         model.addAttribute("log", user.getLogin());
+        userService.getAuthorizerToken(UserAuthModel.builder().login(login).password(password).build());
         // Тут надо сделать проверку есть ль такой в БД если да то переидти на страницу списка юсеров
         return "redirect:/userall";
     }
@@ -42,9 +44,7 @@ public class UserController {
     @PostMapping("/newuser")
     public String newUser(@RequestParam String login, @RequestParam String password, Model model){
         User user = User.builder().login(login).password(password).build();
-//        if (user.getLogin() != null){
-//            userService.getByUserName()
-//        }
+        userService.seve(user);
         model.addAttribute("log", user.getLogin());
         return "redirect:/userall";
     }

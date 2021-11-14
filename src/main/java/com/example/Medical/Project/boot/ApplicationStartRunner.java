@@ -23,12 +23,12 @@ public class ApplicationStartRunner implements CommandLineRunner {
 //        admin.setIsActive(1L);
 //        userService.seve(admin);
 
-        User doctor = new User();
-        doctor.setLogin("Doctor");
-        doctor.setPassword("doctor");
-        doctor.setUserInfo("Врач педиатор");
-        doctor.setIsActive(2L);
-        userService.seve(doctor);
+//        User doctor = new User();
+//        doctor.setLogin("Doctor");
+//        doctor.setPassword("doctor");
+//        doctor.setUserInfo("Врач педиатор");
+//        doctor.setIsActive(2L);
+//        userService.seve(doctor);
 
     }
 }

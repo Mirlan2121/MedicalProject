@@ -77,4 +77,5 @@ public class UserServiceImpl implements UserService { // добавил Сане
         String userNamePasswordPair = userAuthModel.getLogin() + ": " + userAuthModel.getPassword();
         return "Basic " + new String(Base64.getEncoder().encode(userNamePasswordPair.getBytes()));
     }
+
 }
