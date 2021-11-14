@@ -42,7 +42,9 @@ public class UserController {
     @PostMapping("/newuser")
     public String newUser(@RequestParam String login, @RequestParam String password, Model model){
         User user = User.builder().login(login).password(password).build();
-        userService.seve(user);
+//        if (user.getLogin() != null){
+//            userService.getByUserName()
+//        }
         model.addAttribute("log", user.getLogin());
         return "redirect:/userall";
     }
