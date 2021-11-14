@@ -28,11 +28,11 @@
     <tbody>
     <tr th:each="user: ${users}">
         <td th:text="${user.id}">User ID</td>
-        <td th:text="${user.login}">E-mail</td>
-        <td th:text="${user.password}">First Name</td>
-        <td th:text="${user.userInfo}">Last Name</td>
-        <td th:text="${user.isActive}">Roles</td>
-        <td><a href="/"> Edit</a></td>
+        <td th:text="${user.login}">Login</td>
+        <td th:text="${user.password}">Password</td>
+        <td th:text="${user.userInfo}">User Info</td>
+        <td th:text="${user.isActive}">isActive</td>
+        <td><a href="/"> Редактирование </a></td>
     </tr>
     </tbody>
 </table>
