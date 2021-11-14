@@ -31,14 +31,13 @@ public class UserController {
         return "loguser";
     }
 
-    @PostMapping("/loguser")
+    @PostMapping("/loguser")// санек
     public String logUser (@RequestParam String login, @RequestParam String password, Model model){
-        if((password.isEmpty() || password == null) || (login.isEmpty() || login == null)) {
+        if((password.isEmpty() || password == null) || (login.isEmpty() || login == null)) {// санек
             model.addAttribute("texterror", "Нельзя оставлять поля пустыми");
-            return "loguser";
+            return "loguser";// санек
         }
-        UserAuthModel user = UserAuthModel.builder().login(login).password(password).build();
-        userService.getByUserName(user.getLogin());
+        UserAuthModel user = UserAuthModel.builder().login(login).password(password).build();// мирлан
         model.addAttribute("log", user.getLogin());
         userService.getAuthorizerToken(UserAuthModel.builder().login(login).password(password).build());
         return "redirect:/userall";
