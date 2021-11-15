@@ -13,7 +13,16 @@ patron
 inn
 phone
 berthData-->
-<form action="/info" method="post">
+<form action="/info" th:object="${PatUserInfo}" method="post">
+    <input type="text" th:field="*{username}" placeholder="Имя пользователя">
+    <input type="text" th:field="*{serName}" placeholder="Фамилия пользователя">
+    <input type="text" th:field="*{patronName}" placeholder="Отчество пользователя">
+    <input type="text" th:field="*{INN}" placeholder="ИНН пользователя">
+    <input type="text" th:field="*{telephone}" placeholder="Номер телефона пользователя">
+    <input type="datetime-local" th:field="*{dateOfBirth}" placeholder="Дата рождения">
+    <input type="text" th:field="*{rhFactor}" placeholder="Резус фактор">
+    <input type="submit" name="sabmit">
+
 
 </form>
 
