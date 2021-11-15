@@ -7,13 +7,14 @@
 <body>
 
 <h1> Введите свои дополнительные данные</h1>
+<h2 th:text="${log}"/>
 <!--name
 sername
 patron
 inn
 phone
 berthData-->
-<form action="/info" th:object="${PatUserInfo}" method="post">
+<form action="/patuserinfo" th:object="${PatUserInfo}" method="post">
     <input type="text" th:field="*{username}" placeholder="Имя пользователя">
     <input type="text" th:field="*{serName}" placeholder="Фамилия пользователя">
     <input type="text" th:field="*{patronName}" placeholder="Отчество пользователя">

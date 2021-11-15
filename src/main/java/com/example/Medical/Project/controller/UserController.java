@@ -54,6 +54,6 @@ public class UserController {
         }
         userService.seve(user);
         model.addAttribute("log", user.getLogin());
-        return "redirect:/userall";
+        return "patuserinfo";
     }
 }

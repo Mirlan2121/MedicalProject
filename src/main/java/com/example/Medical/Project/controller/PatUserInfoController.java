@@ -9,16 +9,15 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
-@Controller("/patUserInfo")
+@Controller("/patuserinfo")
 public class PatUserInfoController {
     @Autowired
     private PatUserInfoServiceImpl patUserInfoService;
 
-    @GetMapping("/patAllPatUserInfo")
+    @GetMapping
     public String getAllPatUsersInfo(Model model){
-        Iterable<PatUserInfo> allPatUserInfo = patUserInfoService.getAllPatUsersInfo();
-        model.addAttribute("users", allPatUserInfo);
-        model.addAttribute("log", "Не известный пользователь");
+        model.addAttribute("log","Вы вошли");
+
         return "patuserinfo";
     }
 }
