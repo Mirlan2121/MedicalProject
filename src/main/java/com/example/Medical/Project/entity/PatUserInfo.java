@@ -4,6 +4,7 @@ import lombok.*;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.Date;
 
 @Entity
 @Table(name = "pat_user_info")
@@ -33,8 +34,8 @@ public class PatUserInfo {
     @Column(name = "telephone", nullable = false)
     private Long telephone;
 
-    @Column(name = "date_of_birth", nullable = false)
-    private LocalDateTime dateOfBirth;
+//    @Column(name = "date_of_birth", nullable = false)
+//    private Date dateOfBirth;
 
     @Column(name = "rh_factor", nullable = false)
     private String rhFactor;

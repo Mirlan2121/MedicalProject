@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
@@ -17,12 +18,13 @@ public class PatUserInfoController {
 
     @GetMapping("/patUserinfo")
     public String getAllPatUsersInfo(Model model){
-        System.out.println("ЗАХОДИТ");
+        model.addAttribute("PatUserInfo", new PatUserInfo());
         return "patUserinfo";
     }
     @PostMapping("/patUserinfo")
-    public String setInfo(@RequestBody PatUserInfo userInfo, Model model){
+    public String setInfo(@ModelAttribute("PatUserInfo") PatUserInfo userInfo, Model model){
         System.out.println(userInfo);
+
         return "/";
     }
 }

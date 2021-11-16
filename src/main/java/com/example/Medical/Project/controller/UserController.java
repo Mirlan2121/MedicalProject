@@ -1,5 +1,6 @@
 package com.example.Medical.Project.controller;
 
+import com.example.Medical.Project.entity.PatUserInfo;
 import com.example.Medical.Project.entity.User;
 import com.example.Medical.Project.model.UserAuthModel;
 import com.example.Medical.Project.service.impl.UserServiceImpl;
@@ -53,7 +54,7 @@ public class UserController {
             return "newuser";
         }
         userService.seve(user);
-        model.addAttribute("log", user.getLogin());
+        model.addAttribute("PatUserInfo", new PatUserInfo());
         return "patUserinfo";
     }
 }
